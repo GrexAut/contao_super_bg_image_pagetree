@@ -74,7 +74,14 @@ class SuperBgImagePagetree extends Controller
 		// get the file model
 		$objFiles = FilesModel::findMultipleByIds($arrImageIds);
 
+		// stop if there are no files
+		if ($objFiles->count() < 1)
+		{
+			return '';
+		}
 
+
+		// start the html container
 		$strHtml .= '<div id="contao-thumbs">';
 
 		// walk over all files and create the html image
@@ -99,6 +106,7 @@ class SuperBgImagePagetree extends Controller
 			$strHtml .= $strChunk;
 		}
 
+		// close the html container
 		$strHtml .= '</div>';
 
 		return $strHtml;
