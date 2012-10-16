@@ -1,0 +1,29 @@
+<script>
+	$(function() {
+
+	    // Options for SuperBGImage
+	    $.fn.superbgimage.options = {
+	        slideshow: 1,			// 0-none, 1-autostart slideshow
+	        slide_interval: 10000,	// interval for the slideshow
+	        randomimage: 1,			// 0-none, 1-random image
+	        preload: 1, 			// preload images
+	        transition: 1, 			// 0-none, 1-fade, 2-slide down, 3-slide left, 4-slide top, 5-slide right, 6-blind horizontal, 7-blind vertical, 90-slide right/left, 91-slide top/down
+	        speed: 'slow'			// animation speed
+	    };
+
+	    // initialize SuperBGImage
+	    $('#contao-thumbs').superbgimage().hide();
+
+	});
+
+
+	// prev slide
+	$('#contao-thumbs-controls a.prev').click(function() {
+		return $('#contao-thumbs').prevSlide();
+	});
+
+	// next slide
+	$('#contao-thumbs-controls a.next').click(function() {
+		return $('#contao-thumbs').nextSlide();
+	});
+</script>

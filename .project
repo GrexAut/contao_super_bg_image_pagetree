@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>contao_super_bg_image_pagetree</name>
+	<comment></comment>
+	<projects>
+		<project>contao.drei</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.aptana.editor.php.phpNature</nature>
+	</natures>
+</projectDescription>
