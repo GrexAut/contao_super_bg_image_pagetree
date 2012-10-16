@@ -5,10 +5,10 @@
  *
  * Copyright (C) 2005-2012 Leo Feyer
  *
- * @package super_bg_image_pagetree
+ * @package	super_bg_image_pagetree
  * @author	2create.at 2012 <leo.unglaub@2create.at>
- * @link    http://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @link	http://contao.org
+ * @license	http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
 
 
@@ -31,7 +31,7 @@ class SuperBgImagePagetree extends Controller
 		global $objPage;
 
 		// add the images only to the fe_page* template
-		if ($strTemplate === $objPage->template)
+		if ($strTemplate === $objPage->template && $objPage->super_bg_image_pagetree_enable == 1)
 		{
 			// add the required .js files to the template
 			$GLOBALS['TL_JAVASCRIPT'][] = 'assets/super_bg_image/jquery.effects.core.min.js';
@@ -75,7 +75,7 @@ class SuperBgImagePagetree extends Controller
 		$objFiles = FilesModel::findMultipleByIds($arrImageIds);
 
 		// stop if there are no files
-		if ($objFiles->count() < 1)
+		if ($objFiles->count() < 1 || $objPage->super_bg_image_pagetree_enable != 1)
 		{
 			return '';
 		}
