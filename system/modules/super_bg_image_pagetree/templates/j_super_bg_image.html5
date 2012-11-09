@@ -16,14 +16,32 @@
 
 	});
 
+	
+	// define some vars
+	var objPrev = $('#contao-thumbs-controls a.prev');
+	var objNext = $('#contao-thumbs-controls a.next');
+	var objHide = $('#contao-thumbs-controls a.hide');
+	var objShow = $('#contao-thumbs-controls a.show');
 
 	// prev slide
-	$('#contao-thumbs-controls a.prev').click(function() {
+	objPrev.click(function() {
 		return $('#contao-thumbs').prevSlide();
 	});
 
 	// next slide
-	$('#contao-thumbs-controls a.next').click(function() {
+	objNext.click(function() {
 		return $('#contao-thumbs').nextSlide();
+	});
+	
+	// hide controls
+	objHide.click(function(){
+		pref.addClass('contao-thumbs-hide');
+		next.addClass('contao-thumbs-hide');
+	});
+
+	// hide controls
+	objShow.click(function(){
+		pref.removeClass('contao-thumbs-hide');
+		next.removeClass('contao-thumbs-hide');
 	});
 </script>
