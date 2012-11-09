@@ -22,6 +22,7 @@
 	var objNext = $('#contao-thumbs-controls a.next');
 	var objHide = $('#contao-thumbs-controls a.hide');
 	var objShow = $('#contao-thumbs-controls a.show');
+	var objToggleContent = $('#contao-thumbs-controls a.toggle-content');
 
 	// prev slide
 	objPrev.click(function() {
@@ -43,5 +44,22 @@
 	objShow.click(function(){
 		pref.removeClass('contao-thumbs-hide');
 		next.removeClass('contao-thumbs-hide');
+	});
+	
+	// toggle the content
+	objToggleContent.click(function(){
+		
+		// get the container element
+		var objContainer = $('#container');
+		
+		if (objContainer.hasClass('contao-thumbs-hide'))
+		{
+			objContainer.removeClass('contao-thumbs-hide');
+			objContainer.addClass('contao-thumbs-show');
+		}
+		else
+		{
+			objContainer.addClass('contao-thumbs-show');
+		}
 	});
 </script>
