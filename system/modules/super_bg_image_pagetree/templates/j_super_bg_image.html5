@@ -48,18 +48,25 @@
 	
 	// toggle the content
 	objToggleContent.click(function(){
-		
+
 		// get the container element
 		var objContainer = $('#container');
-		
+
+		// remove the class if exists
 		if (objContainer.hasClass('contao-thumbs-hide'))
 		{
+			objToggleContent.removeClass('active');
 			objContainer.removeClass('contao-thumbs-hide');
-			objContainer.addClass('contao-thumbs-show');
+			return;
 		}
-		else
+
+		// add the class if don't exists
+		if (!objContainer.hasClass('contao-thumbs-hide'))
 		{
-			objContainer.addClass('contao-thumbs-show');
+			objToggleContent.addClass('active');
+			objContainer.addClass('contao-thumbs-hide');
+			return;
 		}
+
 	});
 </script>
