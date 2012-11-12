@@ -18,11 +18,11 @@
 
 	
 	// define some vars
-	var objPrev = $('#contao-thumbs-controls a.prev');
-	var objNext = $('#contao-thumbs-controls a.next');
-	var objHide = $('#contao-thumbs-controls a.hide');
-	var objShow = $('#contao-thumbs-controls a.show');
-	var objToggleContent = $('#contao-thumbs-controls a.toggle-content');
+	var objPrev = $('#contao-thumbs-controls span.prev');
+	var objNext = $('#contao-thumbs-controls span.next');
+	var objHide = $('#contao-thumbs-controls span.hide');
+	var objShow = $('#contao-thumbs-controls span.show');
+	var objToggleContent = $('#contao-thumbs-controls span.toggle-content');
 
 	// prev slide
 	objPrev.click(function() {
