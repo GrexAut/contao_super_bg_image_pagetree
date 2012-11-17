@@ -16,7 +16,7 @@
  * Class SuperBgImagePagetree
  * Contains methods to add the javascript "SuperBGImage" to the frontend
  */
-class SuperBgImagePagetree extends Controller
+class SuperBgImagePagetree extends Frontend
 {
 	/**
 	 * Add all images to the frontend
@@ -34,10 +34,10 @@ class SuperBgImagePagetree extends Controller
 		if ($strTemplate === $objPage->template && $objPage->super_bg_image_pagetree_enable == 1)
 		{
 			// add the required .js files to the template
-			$GLOBALS['TL_JAVASCRIPT'][] = 'assets/super_bg_image/jquery.effects.core.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'assets/super_bg_image/jquery.effects.slide.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'assets/super_bg_image/jquery.effects.blind.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'assets/super_bg_image/jquery.superbgimage.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.core.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.slide.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.blind.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.superbgimage.min.js';
 
 
 			// add the new code on the bottom of the fe_page* template
@@ -67,15 +67,10 @@ class SuperBgImagePagetree extends Controller
 
 		// define some variables
 		$strHtml = '';
-		$arrImageIds = (array) deserialize($objPage->super_bg_image_pagetree_images);
-		$arrImageOrder = (array) trimsplit(',', $objPage->order);
-
-
-		// get the file model
-		$objFiles = FilesModel::findMultipleByIds($arrImageIds);
+		$arrImages = (array) deserialize($objPage->super_bg_image_pagetree_images);
 
 		// stop if there are no files
-		if ($objFiles->count() < 1 || $objPage->super_bg_image_pagetree_enable != 1)
+		if (count($arrImages) < 1 || $objPage->super_bg_image_pagetree_enable != 1)
 		{
 			return '';
 		}
@@ -85,25 +80,13 @@ class SuperBgImagePagetree extends Controller
 		$strHtml .= '<div id="contao-thumbs">';
 
 		// walk over all files and create the html image
-		while ($objFiles->next())
+		foreach ($arrImages as $v)
 		{
-			// extract all meta informations
-			$arrMeta = (array) deserialize($objFiles->meta);
+			// read the meta.txt for the current directory
+			$arrMeta = (array) $this->parseMetaFile(dirname($v));
 
-			// get the meta informations for the current language
-			if (isset($arrMeta[$objPage->language]))
-			{
-				$arrMetaLang = $arrMeta[$objPage->language];
-				$strChunk = '<a href="' . $objFiles->path . '" title="' . $arrMetaLang['title'] . '"></a>';
-			}
-			else
-			{
-				// add the new image to the buffer
-				$strChunk = '<a href="' . $objFiles->path . '"></a>';
-			}
-
-
-			$strHtml .= $strChunk;
+			// build the html string with the image as contant
+			$strHtml .= '<a href="' . $v . '" title="' . $this->arrMeta[basename($v)][2] . '" alt="' . $this->arrMeta[basename($v)][0] . '"></a>';
 		}
 
 		// close the html container

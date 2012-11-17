@@ -43,8 +43,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_enable'] = arra
 	(
 		'tl_class'			=> 'w50 m12',
 		'submitOnChange'	=> true
-	),
-	'sql'			=> "char(1) NOT NULL default ''"
+	)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_images'] = array
@@ -62,14 +61,12 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_images'] = arra
 		'orderField'		=> 'super_bg_image_pagetree_order',
 		'multiple'			=> true,
 		'extensions'		=> $GLOBALS['TL_CONFIG']['validImageTypes']
-	),
-	'sql'			=> "blob NOT NULL"
+	)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_order'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['super_bg_image_pagetree_order'],
-	'sql'			=> "text NULL"
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['super_bg_image_pagetree_order']
 );
 
 ?>
