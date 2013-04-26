@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_enable'] = arra
 	'filter'		=> true,
 	'eval'			=> array
 	(
-		'tl_class'			=> 'w50 m12',
+		'tl_class'			=> 'w50',
 		'submitOnChange'	=> true
 	)
 );
