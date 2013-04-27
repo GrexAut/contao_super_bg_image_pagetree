@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_enable'] = arra
 	'filter'		=> true,
 	'eval'			=> array
 	(
-		'tl_class'			=> 'w50 m12',
+		'tl_class'		=> 'w50',
 		'submitOnChange'	=> true
 	),
 	'sql'			=> "char(1) NOT NULL default ''"
@@ -55,12 +55,12 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_images'] = arra
 	'search'		=> true,
 	'eval'			=> array
 	(
-		'tl_class'			=> 'long clr',
-		'files'				=> true,
-		'filesOnly'			=> true,
-		'fieldType'			=> 'checkbox',
+		'tl_class'		=> 'long clr',
+		'files'			=> true,
+		'filesOnly'		=> true,
+		'fieldType'		=> 'checkbox',
 		'orderField'		=> 'super_bg_image_pagetree_order',
-		'multiple'			=> true,
+		'multiple'		=> true,
 		'extensions'		=> $GLOBALS['TL_CONFIG']['validImageTypes']
 	),
 	'sql'			=> "blob NOT NULL"
