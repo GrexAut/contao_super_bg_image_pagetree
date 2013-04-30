@@ -23,5 +23,3 @@ $GLOBALS['TL_LANG']['tl_page']['super_bg_image_pagetree_order']		= array('Sortie
  * Legend
  */
 $GLOBALS['TL_LANG']['tl_page']['super_bg_image_pagetree_legend'] = 'SuperBGImage Einstellungen';
-
-?>

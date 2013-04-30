@@ -115,5 +115,3 @@ class SuperBgImagePagetree extends Controller
 		return $strHtml;
 	}
 }
-
-?>

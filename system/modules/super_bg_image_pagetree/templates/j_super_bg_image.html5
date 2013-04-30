@@ -16,7 +16,7 @@
 
 	});
 
-	
+
 	// define some vars
 	var objPrev = $('#contao-thumbs-controls span.prev');
 	var objNext = $('#contao-thumbs-controls span.next');
@@ -33,7 +33,7 @@
 	objNext.click(function() {
 		return $('#contao-thumbs').nextSlide();
 	});
-	
+
 	// hide controls
 	objHide.click(function(){
 		pref.addClass('contao-thumbs-hide');
@@ -45,7 +45,7 @@
 		pref.removeClass('contao-thumbs-hide');
 		next.removeClass('contao-thumbs-hide');
 	});
-	
+
 	// toggle the content
 	objToggleContent.click(function(){
 

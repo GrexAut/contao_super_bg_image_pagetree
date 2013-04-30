@@ -71,5 +71,3 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['super_bg_image_pagetree_order'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['super_bg_image_pagetree_order'],
 	'sql'			=> "text NULL"
 );
-
-?>
