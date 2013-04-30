@@ -68,11 +68,14 @@ class SuperBgImagePagetree extends Controller
 		// define some variables
 		$strHtml = '';
 		$arrImageIds = (array) deserialize($objPage->super_bg_image_pagetree_images);
-		$arrImageOrder = (array) trimsplit(',', $objPage->order);
 
+		// prepare all options for the model
+		$arrModelParams = array();
+		$arrModelParams['order'] = 'FIND_IN_SET(id, "' . $objPage->super_bg_image_pagetree_order . '")';
 
 		// get the file model
-		$objFiles = FilesModel::findMultipleByIds($arrImageIds);
+		$objFiles = FilesModel::findMultipleByIds($arrImageIds, $arrModelParams);
+
 
 		// stop if there are no files
 		if ($objFiles->count() < 1 || $objPage->super_bg_image_pagetree_enable != 1)
