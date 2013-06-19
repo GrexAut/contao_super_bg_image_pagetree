@@ -15,6 +15,7 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('SuperBgImagePagetree', 'addImagesToHtml')
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][]	= array('SuperBgImagePagetree', 'addImagesToHtml');
+$GLOBALS['TL_HOOKS']['generatePage'][]				= array('SuperBgImagePagetree', 'addJsToHeader');
 
 ?>

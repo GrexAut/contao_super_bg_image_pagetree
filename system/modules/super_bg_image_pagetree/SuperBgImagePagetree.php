@@ -33,19 +33,38 @@ class SuperBgImagePagetree extends Frontend
 		// add the images only to the fe_page* template
 		if ($strTemplate === $objPage->template && $objPage->super_bg_image_pagetree_enable == 1)
 		{
-			// add the required .js files to the template
-			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.core.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.slide.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.blind.min.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.superbgimage.min.js';
-
-
 			// add the new code on the bottom of the fe_page* template
 			$strContent = str_replace('</body>', $this->generateHtmlCode() . '</body>', $strContent);
 		}
 
 		// return the modified content
 		return $strContent;
+	}
+
+
+	/**
+	 * Add the needed js files to the header.
+	 *
+	 * Note:
+	 * In 2.11 you can't use the addImageToHtml method for that because
+	 * it's triggered way to late.
+	 *
+	 * @param	$objPage
+	 * @param	$objLayout
+	 * @param	$objPageRegular
+	 * @return	void
+	 */
+	public function addJsToHeader($objPage, $objLayout, $objPageRegular)
+	{
+		// only add the files if the super_bg_image is enabled
+		if ($objPage->super_bg_image_pagetree_enable == 1)
+		{
+			// add the required .js files to the template
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.core.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.slide.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.effects.blind.min.js';
+			$GLOBALS['TL_JAVASCRIPT'][] = 'plugins/super_bg_image/jquery.superbgimage.min.js';
+		}
 	}
 
 
